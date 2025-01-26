@@ -1,9 +1,9 @@
-import UseReducerExample from "./pages/UseReducerExample";
+import UseReducerForm from "./pages/UseReducerForm";
 
 function App() {
   return (
     <>
-      <UseReducerExample />
+      <UseReducerForm />
     </>
   );
 }

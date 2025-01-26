@@ -1,13 +1,20 @@
 import React, { useReducer } from "react";
 
 const UseReducerExample = () => {
+  type TAction = {
+    type: string;
+    payload?: number;
+  };
+
   const initialState = {
     count: 0,
   };
-  const reducer = (currentState, action) => {
+  const reducer = (currentState: typeof initialState, action: TAction) => {
     switch (action.type) {
       case "increment":
         return { count: currentState.count + 1 };
+      case "incrementByThree":
+        return { count: currentState.count + (action.payload ?? 0) };
       case "decrement":
         return { count: currentState.count - 1 };
 
@@ -28,6 +35,13 @@ const UseReducerExample = () => {
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
         >
           Increase
+        </button>
+        <button
+          onClick={() => dispatch({ type: "incrementByThree", payload: 3 })}
+          type="button"
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        >
+          Increase 3
         </button>
 
         <button
@@ -51,4 +65,6 @@ export default UseReducerExample;
 
    * reducer function  takes 2 params:  1. the currentState 2. the object that dipatch function passes.(named as action)
      we can take necessary logical measures depending on the action's type.
+
+    * We can pass additional information inside dispatch. such as payload.
    */
