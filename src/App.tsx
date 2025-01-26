@@ -1,9 +1,9 @@
-import UseReducerForm from "./pages/UseReducerForm";
+import UseEffectExample from "./pages/UseEffectExample";
 
 function App() {
   return (
     <>
-      <UseReducerForm />
+      <UseEffectExample />
     </>
   );
 }
