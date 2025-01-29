@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ThemeContext, TThemeContext } from "../contexts/ThemeContext";
 
 const UseEffectExample = () => {
+  const { dark } = useContext(ThemeContext) as TThemeContext;
+  console.log(dark);
   const [hidden, setHidden] = useState(false);
   useEffect(() => {
     //  console.log("render");
